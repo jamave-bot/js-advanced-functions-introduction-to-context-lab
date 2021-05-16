@@ -57,14 +57,26 @@ function wagesEarnedOnDate(employeeRecord, date){
 }
 
 function allWagesFor(employeeRecord){
+
+    // FIRST TRY
     // return employeeRecord.timeOutEvents.reduce((accumulator, currentValue)=>{
     //     return accumulator + wagesEarnedOnDate(employeeRecord, currentValue.date);
     // })
-    let employeeCopy = Object.assign({}, employeeRecord);
+
+    // SECOND TRY
+    // let employeeCopy = Object.assign({}, employeeRecord);
+    // let totalWage = 0;
+    // employeeCopy.timeOutEvents.forEach((timeOutEvent)=>{
+    //     totalWage += wagesEarnedOnDate( employeeCopy, timeOutEvent.date)
+    //     // employeeCopy.timeOutEvents.shift();
+    // })
+    // return totalWage;
+
+
+    // THIRD TRY
     let totalWage = 0;
-    employeeCopy.timeOutEvents.forEach((timeOutEvent)=>{
-        totalWage += wagesEarnedOnDate( employeeCopy, timeOutEvent.date)
-        // employeeCopy.timeOutEvents.shift();
+    employeeRecord.timeOutEvents.forEach((timeOutEvent)=>{
+        totalWage += wagesEarnedOnDate(employeeRecord, timeOutEvent.date)
     })
     return totalWage;
 }
